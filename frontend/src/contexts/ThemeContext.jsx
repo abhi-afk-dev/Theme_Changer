@@ -4,6 +4,15 @@ import React, { createContext, useState, useEffect } from 'react';
 // It will provide the current theme name and a function to update it.
 const ThemeContext = createContext(null);
 
+// Define available themes as an array of objects
+// Each object has a 'name' (for CSS class) and 'displayName' (for UI display)
+const THEMES = [
+  { name: 'light', displayName: 'Light' },
+  { name: 'dark', displayName: 'Dark' },
+  { name: 'solarized', displayName: 'Solarized' },
+  { name: 'nord', displayName: 'Nord' },
+];
+
 // 2. Create and export ThemeProvider component
 const ThemeProvider = ({ children }) => {
   // Manage the current theme state. Default to 'light'.
@@ -12,9 +21,10 @@ const ThemeProvider = ({ children }) => {
   // Effect to load the initial theme from localStorage on component mount.
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
+    // Check if storedTheme exists and is one of the valid themes
+    if (storedTheme && THEMES.some(theme => theme.name === storedTheme)) {
       setThemeName(storedTheme);
-    } // If no stored theme, 'light' remains the default via useState initialization.
+    } // If no valid stored theme, 'light' remains the default via useState initialization.
   }, []); // Empty dependency array means this effect runs once after the initial render.
 
   // Effect to save the theme to localStorage and apply CSS class whenever it changes.
@@ -35,13 +45,19 @@ const ThemeProvider = ({ children }) => {
 
   // Function to update the theme, to be exposed via context.
   const setTheme = (newTheme) => {
-    setThemeName(newTheme);
+    // Only set the theme if the newTheme is a valid one from our THEMES list
+    if (THEMES.some(theme => theme.name === newTheme)) {
+      setThemeName(newTheme);
+    } else {
+      console.warn(`Attempted to set an invalid theme: ${newTheme}. Available themes: ${THEMES.map(t => t.name).join(', ')}`);
+    }
   };
 
   // The value provided to consumers of this context.
   const contextValue = {
     themeName,
     setTheme,
+    themes: THEMES, // Expose the list of available themes to context consumers
   };
 
   return (
