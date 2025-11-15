@@ -3,13 +3,44 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- 
+    The <base href> tag specifies the base URL for all relative URLs in a document.
+    Set to '/' for root deployment. If deploying to a subpath (e.g., example.com/my-app/), 
+    update this to '/my-app/' and also update the 'base' property in vite.config.js.
+  -->
+  <base href="/" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Essential SEO and Social Media Meta Tags -->
+  <meta name="description" content="A simple background changer application built with React and Vite." />
+  <meta name="keywords" content="React, Vite, Tailwind CSS, Background Changer, Web App, Frontend" />
+
+  <!-- Open Graph / Facebook / LinkedIn Meta Tags -->
+  <meta property="og:title" content="BackgroundChanger - Dynamic Backgrounds" />
+  <meta property="og:description" content="Easily change your application's background colors with a simple React app." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="https://yourdomain.com/social-share-image.jpg" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BackgroundChanger - Dynamic Backgrounds" />
+  <meta name="twitter:description" content="Easily change your application's background colors with a simple React app." />
+  <meta name="twitter:image" content="https://yourdomain.com/social-share-image.jpg" />
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#1A1A1A" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
-  <title>BackgroundChanger</title>
+  <title>BackgroundChanger - Dynamic Backgrounds</title>
 </head>
 
 <body>
