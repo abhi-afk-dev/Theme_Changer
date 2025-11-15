@@ -1,6 +1,37 @@
 @import "tailwindcss";
 
 
+:root {
+  /* Default (Light) Theme Variables */
+  --primary-text-color: #333333;
+  --secondary-text-color: #555555;
+  --background-color: #ffffff;
+  --surface-color: #f0f0f0;
+  --accent-color: #007bff;
+  --border-color: #cccccc;
+}
+
+.theme-light {
+  /* Explicit Light Theme - Same as default */
+  --primary-text-color: #333333;
+  --secondary-text-color: #555555;
+  --background-color: #ffffff;
+  --surface-color: #f0f0f0;
+  --accent-color: #007bff;
+  --border-color: #cccccc;
+}
+
+.theme-dark {
+  /* Dark Theme Variables */
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #aaaaaa;
+  --background-color: #1a1a1a;
+  --surface-color: #2c2c2c;
+  --accent-color: #88c0d0;
+  --border-color: #444444;
+}
+
+
 .robotocondensed-text{
   font-family: 'Roboto Condensed', sans-serif;
 }
