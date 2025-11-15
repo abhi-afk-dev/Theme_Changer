@@ -1,0 +1,17 @@
+The theming system is implemented using CSS variables. 
+
+**`frontend/src/index.css`:**
+- Imports `tailwindcss`.
+- Defines a set of CSS variables (e.g., `--primary-text-color`, `--background-color`, `--accent-color`) under the `:root` selector, which serves as the default (light) theme.
+- Explicitly defines the same CSS variables under the `.theme-light` class, mirroring the default values.
+- Defines a separate set of values for these CSS variables under the `.theme-dark` class to provide the dark theme.
+- Also includes font-specific classes like `.robotocondensed-text` and `.bungee-text`.
+
+**`frontend/src/App.css`:**
+- Consumes the CSS variables defined in `index.css` to style various elements, such as `body`, `.app-container`, headings (`h1-h6`), paragraphs (`p`), links (`a`), buttons, and generic `.surface-element`.
+- It uses `var(--variable-name)` to apply colors, backgrounds, and borders that automatically update when the theme changes.
+- Includes `transition` properties for `background-color` and `color` to ensure smooth visual changes when the theme is toggled.
+
+**Mechanism:**
+- The `ThemeContext.jsx` (as observed from the context) is responsible for adding either `theme-light` or `theme-dark` class to the `document.documentElement` (the `<html>` tag). 
+- This class then activates the corresponding set of CSS variables defined in `index.css`, which are propagated throughout the DOM and applied by the styles defined in `App.css` and other component-specific stylesheets.
